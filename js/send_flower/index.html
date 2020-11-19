@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Flower {
+            
+    
+        }
+        // JSON Object
+        const fzq = {
+            name: '范志强',
+            age: 20,
+            hometown: '上饶',
+            girlFriend: '小仙女',
+            isSingle: false,
+            house: null
+        }
+        // 黄志乾 抚州 21 true
+        const  hzq = { //对象 Object
+            name: '黄志乾', // 字符串
+            hobbies: ['练字', '王者'], // Array JS里没有独立的数组对象, 
+            // Array Object
+            age: 21, // 数值 类型  Number
+            hometown: '抚州',
+            isSingle: true, // boolean
+            girlFriend: undefined, // 未定义 概念都 没有 
+            house: null, // 为空
+            // 函数对象
+            // gf 参数 形参 类型 是对象JSON Object
+            sendFlower: function(gf) {
+                const flowers = new Flower(11);
+                gf.receiveFlower(flowers, this);
+            }
+        }
+    
+        const xm = {
+            name: '小美',
+            age: 19,
+            receiveFlower: function(flower, sender) {
+                console.log(this.name + '收到了' + sender.name + '的花')
+            }
+        } 
+
+        const xh = {
+            name: '小红',
+            hometown: '抚州',
+            receiveFlower: function(flower, sender){
+                // console.log('小红收到了花')
+                if(sender.name == '黄志乾'){
+                    // console.log('还是让我们再一起吧');
+                    xm.receiveFlower(flower, sender);
+                }else{
+                    console.log(this.name + '收到了' + sender.name + '的花');
+                }
+            }
+        }
+        </script>
+</body>
+</html>
