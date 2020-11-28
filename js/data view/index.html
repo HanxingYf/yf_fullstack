@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <table id="root" class="table-striped">
+        <thead>
+            <td>序号</td>
+            <td>名字</td>
+            <td>花名</td>
+            <td>年纪</td>
+            <td>家乡</td>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const students = [{
+            name: '皮鑫',
+            age: 18,
+            hometown: '宜春',
+            nickName: '三星'
+        }, {
+            name: '刘佳丽',
+            age: 18,
+            hometown: '吉安',
+            nickName: 'li'
+        }, {
+            name: '水果鱼',
+            age: '19',
+            hometown: '景德镇',
+            nickName: 'sef'
+        },
+        {
+            name: '狗子',
+            age: 20,
+            hometown: '抚州',
+            nickName: '三星',
+        },
+        {
+            name: '邹振于',
+            age: 21,
+            hometown: '赣州',
+            nickName: '东理'
+        },
+        {
+            name: 'hy',
+            age: 99,
+            hometown: '赣州',
+            nickName: '钟俊超'
+        },
+        {
+            name: '尚水水',
+            age: 18,
+            hometown: '赣州',
+            nickName: '水水'
+        },
+        {
+            name: '范志强',
+            age: 20,
+            hometown: '余干',
+            nickName: '范佐'
+        },
+        {
+            name: '廖辉',
+            age: 20,
+            hometown: '赣州',
+            nickName: '三星',
+        }
+        ]
+        const tBodyEle = document.querySelector('#root tbody');
+        students.forEach((student, index) => {
+            tBodyEle.innerHTML += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${student.name}</td>
+            <td>${student.nickName}</td>
+            <td>${student.age}</td>
+            <td>${student.hometown}</td>
+          </tr>
+        `
+        })
+    </script>
+</body>
+
+</html>
