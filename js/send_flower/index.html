@@ -41,8 +41,18 @@
         const xm = {
             name: '小美',
             age: 19,
+            xq: 50,
+            const: ag = 1,
             receiveFlower: function(flower, sender) {
-                console.log(this.name + '收到了' + sender.name + '的花')
+                //xq < 80 丑拒
+                //万达走一波
+                if(this.xq < 80){
+                    console.log('丑拒！');
+                }
+                else{
+                    console.log(this.name + '收到了' + sender.name + '的花')
+                }
+                
             }
         } 
 
@@ -53,7 +63,13 @@
                 // console.log('小红收到了花')
                 if(sender.name == '黄志乾'){
                     // console.log('还是让我们再一起吧');
-                    xm.receiveFlower(flower, sender);
+                    //心情好心情坏
+                    //定时器
+                    // console.log(xm.ag);
+                    setTimeout(function(){
+                        xm.xq = 100;
+                        xm.receiveFlower(flower, sender);
+                    }, 2000) 
                 }else{
                     console.log(this.name + '收到了' + sender.name + '的花');
                 }

@@ -1,0 +1,23 @@
+.weui-cell
+    padding 16px
+    text-decoration: none
+    position relative
+    display flex
+    .weui-cell__bd
+        flex 1
+        // background-color red
+    .weui-cell__ft
+        padding-right 22px
+        position relative
+        // background-color green
+        &::after
+            content ''
+            width 12px
+            height 12px
+            border 1px solid rgba(0,0,0,5)
+            border-bottom none 
+            border-left none 
+            transform rotate(45deg)
+            position absolute
+            top 2px
+        

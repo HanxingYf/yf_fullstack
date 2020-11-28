@@ -14,3 +14,15 @@
     - 一个元素有多个类
         .weui-btn Block     基础类
         .weio-btn_primary   Modify 多态
+
+4. npm i -g live-server
+    live-server web 服务器
+
+5. 结构
+    结构套路 移动端页面 超越项目
+    .page>.page__hd+.page__bd
+    weui 项目组
+    BEM 搭积木
+    Block 块
+    Element 子元素 __
+    Modifier 装饰 _
