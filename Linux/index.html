@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="telForm">
+        <label for="telInput">用户名</label>
+        <input type="text" id="telInput" name="telInput"  placeholder="请输入手机号" maxlength="11" minlength="11" pattern="^1[345789][0-9]{9}$">
+        <button type="submit">提交按钮</button>
+    </form>
+    <script>
+        // 页面上所有的Form都归document.forms
+        // const oForm = document.forms["telForm"]
+        // // console.log(oForm);
+        // oForm.addEventListener("submit",(event) => {
+        //     // alert('----')
+        //     // 阻止默认行为
+        //     event.preventDefault();
+        //     let tel = oForm["telInput"].value;
+        //     console.log(tel);
+        //     if(/^[0-9]{11}$/.test(tel)){
+        //         console.log('正确的手机号');
+        //     }else{
+        //         alert('手机号格式有误')
+        //     }
+        // })
+    </script>
+</body>
+</html>
