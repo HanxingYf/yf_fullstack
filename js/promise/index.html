@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定时器
+        // setTimeout(function(){
+        //     console.log(1);
+        // },1000)
+
+        // 异步 I/O 
+        const p1 = new Promise((resolve, reject) =>{
+            // 花时间的操作 向后端发送请求 花时间的事情放在promise中
+            // 封装了一个http 一去一来的请求 花时间
+            // fetch 负责去取一下
+            fetch("http://127.0.0.1:8080/user.json")
+                .then(data => data.json())
+                .then(data => {
+                    // console.log(data);
+                    // 实现了promise
+                    resolve(data)
+                })
+            // setTimeout(() =>{
+            //     console.log(1);
+            // },1000)
+            console.log(3);
+            resolve(1);
+        })
+        
+        p1.then((data) =>{
+            console.log(data);
+        })
+        console.log(2);
+        // 如何先输入2 再输出1
+    </script>
+</body>
+</html>

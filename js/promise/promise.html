@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 花两秒做事A
+        // 2s后再做B, 花3s做完
+        // 最后说完成了
+        let p1 = new Promise((resolve, reject) =>{
+            console.log('开始任务');
+            setTimeout(() =>{
+                console.log('完成了任务A');
+                resolve();
+            },2000)
+            // resolve()
+        });
+        let p2 = new Promise((resolve) =>{
+            setTimeout(() =>{
+                // console.log('完成了任务B');
+                resolve();
+            },3000)
+        })
+
+        p1
+            .then(() =>{
+                p2.then(() =>{
+                    console.log('完成了任务B');
+                })
+            })
+
+        
+    </script>
+</body>
+</html>
