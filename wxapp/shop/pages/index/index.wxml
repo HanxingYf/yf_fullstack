@@ -1,0 +1,81 @@
+<!--pages/index/index.wxml-->
+<view class="main">
+  <swiper indicator-dots indicator-active-color = '#ffffff' autoplay = 'true'  circular= 'true' duration="{{duration}}" 
+  interval="{{interval}}" > 
+    <block wx:for="{{imgUrls}}" wx:key="index">
+    <swiper-item>
+      <image class="slide-image" src="{{item}}" />
+        
+    </swiper-item>
+    </block>
+  </swiper>
+  <view class="selected">
+    <view class="selected-title">
+      <text>精选主题</text>
+    </view>
+    <view class="selected-top">
+      <view class="selected-top__small">
+        <navigator url="../detail/detail">
+          <image src="/image/s1.png"></image>
+        </navigator>
+      </view>
+      <view class="selected-top__small">
+        <navigator url="../detail/detail">
+          <image src="/image/s2.png"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="select-bottom">
+      <navigator url="">
+        <image src="/image/s3.png"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="newest">
+    <view class="selected-title">
+      <text>最近新品</text>
+    </view>
+    <view class="newest-box">
+      <!-- <view class="newest-list">
+        <navigator url="">
+          <image src="/image/s4.png"></image>
+          <view class="newest-name">
+            <text>瓜子 100g</text>
+          </view>
+          <view class="newest-price">
+            <text>￥ 0.01</text>
+          </view>
+        </navigator>
+      </view> -->
+      <!-- <view class="newest-list">
+        <navigator url="">
+          <image src="/image/s4.png"></image>
+          <view class="newest-name">
+            <text>瓜子 100g</text>
+          </view>
+          <view class="newest-price">
+            <text>￥ 0.01</text>
+          </view>
+        </navigator>
+      </view> -->
+      <view class="newest-list"
+      wx:for="{{newsList}}"
+      wx:key="index"
+      >
+        <navigator url="">
+          <image src="{{item.url}}"></image>
+          <view class="newest-name">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="newest-price">
+            <text>￥{{item.price}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  
+
+
+</view>
