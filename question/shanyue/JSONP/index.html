@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 显示players
+        // 两个应用 1.json-server 3000
+            // 2. 静态网页服务应用 8080
+        // fetch("https://www.runoob.com/try/ajax/jsonp.php")
+        //     .then(data => data.json())
+        //     .then(data => {
+        //         console.log(data);
+        //     })
+        window.callbackFunction = (data) => {
+            console.log(data);
+        }
+        const script = document.createElement('script');
+        script.src = "https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction";
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>
