@@ -1,0 +1,35 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <!-- banners -->
+  <view class="tm-banners">
+    <swiper class="tm-banners__swiper" indicator-dots indicator-active-color="#fff" autoplay circular>
+      <swiper-item wx:for="{{banners}}" wx:key="id">
+        <image mode="widthFix" bindtap="tapBanner" src="{{item.picUrl}}" data-url="{{item.linkUrl}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- search -->
+  <view class="search">
+    <input type="text" placeholder="输入搜索关键字" id="" value="{{keyword}}" bindinput="doSearchInput"
+      bindconfirm="doSearch" />
+    <image src="/images/icon/search.svg"></image>
+  </view>
+
+  <!-- notice -->
+  <view class="notice-box" wx:if="{{noticeList}}">
+    <view class="notice">
+      <image class="notice_icon" src="/images/notice.png"></image>
+      <swiper class="notice_swiper" vertical autoplay circular>
+        <navigator wx:for="{{noticeList.dataList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}">
+          <swiper-item>
+            <view class="notice-item">{{item.title}}</view>
+          </swiper-item>
+        </navigator>
+        <swiper-item>
+          <view class="notice-item">东哥战斗</view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+/* pages/home/home.wxss */
+.tm-banners{
+  width: 750rpx;
+  height: 375rpx;
+  position: relative;
+}
+.tm-banners .tm-banners__swiper image{
+  width: 100%;
+  height: 100%;
+}
+.search{
+  position: absolute;
+  top: 32rpx;
+  left: 25rpx;
+  width: 700rpx;
+  height: 66rpx;
+  display: block;
+  box-sizing: border-box;
+}
+.search input{
+  display: block;
+  box-sizing: border-box;
+  background-color: rgba(253, 253, 253, 0.5);
+  border: wpx solid #e3e3e3;
+  width: 700rpx;
+  height: 66rpx;
+  border-radius: 30rpx;
+  padding-left: 32rpx;
+}
+.search image{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 16rpx;
+  right: 32rpx;
+  z-index: 99;
+}
+
+.notice-box{
+  display: flex;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 88rpx;
+  line-height: 88rpx;
+  justify-content: space-between;
+  align-content: center;
+  padding-right: 32rpx;
+  border-bottom: 1px solid #efeff4;
+}
+.notice{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600rpx;
+}
+.notice_icon{
+  margin-left: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.notice_swiper{
+  width: 600rpx;
+  height: 88rpx;
+}
+.notice-item{
+  padding-left: 16rpx;
+  font-style: 24rpx;
+  overflow: hidden;
+  color: #e64340;
+}
