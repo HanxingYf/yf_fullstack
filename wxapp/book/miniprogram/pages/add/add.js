@@ -29,12 +29,17 @@ Page({
       success: res => {
         // 拿到图片文件 
         console.log(res);
-        const tempFilePaths = res.tempFilePaths
+        // 图片的地址数组
+        const tempFilePaths = res.tempFilePaths;
         for(var i = 0; i < tempFilePaths.length; i ++ ){
+          // 生成图片名字
           let randString = Math.floor(Math.random() * 1000000).toString() + '.png'
           wx.cloud.uploadFile({
+            // 目的地址
             cloudPath: randString, // 上传至云端的路径
+            // 文件地址
             filePath: tempFilePaths[i], // 小程序临时文件路径
+            // 成功
             success: res => {
               photos.add({
                 data: {
