@@ -1,0 +1,1 @@
+<van-button type="primary" bindtap="upLoad">上传图片</van-button>

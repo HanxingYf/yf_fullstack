@@ -1,0 +1,5 @@
+<!--pages/phoneDetail/phoneDetail.wxml-->
+<text>{{phone.title}}</text>
+<text>{{phone.price}}</text>
+<text>{{phone.id}}</text>
+<image src="{{phone.image}}"></image>

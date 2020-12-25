@@ -1,0 +1,7 @@
+.t1 {
+  color: red;
+}
+.t2 {
+  background: green;
+  color: #ffffff;
+}

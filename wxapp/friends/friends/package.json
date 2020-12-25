@@ -1,0 +1,15 @@
+{
+  "name": "friends",
+  "version": "0.1.0",
+  "description": "- 电商来设计   明年是电商爆发年 - 小程序由一个个的page购成   每个page 分成四部份    index.js 提供了数据   index.wxml 提供html的界面   index.wxss 负责干什么？",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "shunwuyu <shunwu2001@163.com> (http://github.com/shunwuyu)",
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.6.4"
+  }
+}
