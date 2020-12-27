@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText":"会员中心",
+  "usingComponents": {
+    "van-row":"@vant/weapp/row/index",
+    "van-col":"@vant/weapp/col/index",
+    "van-icon":"@vant/weapp/icon/index",
+    "van-cell-group":"@vant/weapp/cell-group/index",
+    "van-cell":"@vant/weapp/cell/index"
+  }
+}
