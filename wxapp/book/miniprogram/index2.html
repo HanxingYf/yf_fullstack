@@ -1,0 +1,46 @@
+<!--
+ * @Author:xyl
+ * @Date: 2020-12-27 14:43:33
+ * @LastEditTime: 2020-12-27 15:33:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \git_pro\xyl_fullstack\wxapp\mall\pages\my\index.html
+-->
+<!-- 研究页面怎么先出现页面,再加载出一些难加载的图片 -->
+<!-- 图片懒加载 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 这里没写src -->
+    <img alt="sdfsdf" id="avatar" src="https://img.36krcdn.com/20201227/v2_72db45cdf79747ab8611214166354dd6_img_jpg">
+    
+    <script>
+    // 图片加载时,为什么要有loading?  为了更好的体验
+        const strAvatar='https://img.36krcdn.com/20201227/v2_674c162cce6d45d2a9328bcc8166c0c8_img_jpg';
+        // 如何把strAvatar给img显示(使用DOM编程)
+        // oAvatar的命名
+        const oAvatar=document.querySelector('#avatar');
+        const oImg=new Image();//没有在DOM中,在内存之中由浏览器分配
+        // url->proxy->http->request->response 网络层
+        oImg.src=strAvatar;//浏览器是访问网站的代理,发送http请求
+        oImg.onload=function(){
+            console.log('-----');
+            //http response over
+            // 浏览器有缓存
+            oAvatar.src=strAvatar;
+        }
+        // 浏览器启动了一个网络进程,下载一张图片
+        
+        // console.log(typeof oAvatar);
+        // oAvatar.src=strAvatar;
+        // 该怎么优化?
+
+        //  http://127.0.0.1:8080/
+    </script>
+</body>
+<html>
