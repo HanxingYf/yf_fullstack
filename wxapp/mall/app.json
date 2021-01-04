@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/goods/list",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/goods/list"
+    "pages/goods/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #131313;
+}
+.container {
+  position: relative;
+}
+.dw_card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background-color: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.dw_card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9bdc28;
+  transition: all 0.5s;
+  clip-path: circle(150px at 80% 20%);
+}
+.dw_card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+.dw_card:hover .dw_card__imgBx {
+  top: 0;
+  transform: translateY(0);
+}
+.dw_card:hover .dw_card__imgBx img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  width: 270px;
+  transform: translate(-50%, -50%) rotate(-25deg);
+}
+.dw_card:hover .dw_card__contentBx {
+  height: 210px;
+}
+.dw_card .dw_card__imgBx {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+.dw_card .dw_card__contentBx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 0;
+}
+.dw_card .dw_card__contentBx h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.dw_card .dw_card__contentBx .dw_card__size,
+.dw_card .dw_card__contentBx .dw_card__color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+}
+.dw_card .dw_card__contentBx .dw_card__size h3,
+.dw_card .dw_card__contentBx .dw_card__color h3 {
+  color: #fff;
+  font-weight: 300;
+  font-style: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+.dw_card .dw_card__contentBx .dw_card__size span,
+.dw_card .dw_card__contentBx .dw_card__color span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 0 5px;
+  line-height: 26px;
+  display: inline-block;
+  cursor: pointer;
+}

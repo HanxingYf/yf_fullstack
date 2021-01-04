@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" id="b1"></div>
+    <div class="box" name='b2'>
+        <p></p>
+    </div>
+    <div class="box"></div>
+    <script>
+        console.log(document.querySelectorAll('.box'));
+        console.log(document.getElementsByTagName('.div'));
+        console.log(document.getElementsByClassName('.box'));
+        // 查找第一个#b1 有哪些方法
+        console.log(document.getElementById('b1'));
+        console.log(document.querySelector('#b1'));
+        console.log(document.getElementsByClassName('box')[0]);
+        // 找到p元素
+        // console.log(document.getElementsByTagName('.p'));
+        console.log(document.querySelector('div p'));
+        console.log(document.getElementsByTagName('p'));
+        console.log(document.getElementsByTagName("div")[1].children[0]);
+        console.log(document.getElementsByName('b2')[0].getElementsByTagName('p')[0]);
+    </script>
+</body>
+</html>
