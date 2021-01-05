@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.div {
+  box-sizing: border-box;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: #ccc;
+  border-radius: 50%;
+  left: 40%;
+  top: 200px;
+}
+.clip {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: 10px solid #f00;
+  border-radius: 50%;
+  clip: rect(0, 200px, 200px, 100px);
+}
+.left {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: 10px solid #add8e6;
+  border-right: 50%;
+  clip: rect(0 100px 200px 0);
+}
+.right {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: 10px solid #add8e6;
+  border-radius: 50%;
+  clip: rect(0, 200px, 200px 100px);
+  top: -10px;
+  left: -10px;
+}
+.num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}

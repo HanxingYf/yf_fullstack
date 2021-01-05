@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            font-family: sans-serif;
+            background-color: #ffc600;
+            text-transform: uppercase;
+            display: flex;  /* 水平 */
+            flex-direction: column;
+            justify-content: center; /*主轴*/
+            font-size: 50px;
+            align-items: center;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0,2);
+        }
+        .jump span{
+            position: relative;
+            display: inline-block;
+            transition: transform 0.1s;
+            cursor: url('http://csscursor.info/source/santahand.png'),default;
+        }
+        .jump span:hover{
+            transform: translateY(-20px) scale(2) rotate(10deg);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="jump">SPREADS!</h2>
+    <script>
+        const heading = document.querySelector('.jump');
+        heading.innerHTML = sparanWrap(heading.textContent);
+        console.log(heading.innerHTML);
+        function sparanWrap(word){
+        //   console.log(word);
+        //   let n = word.split("");
+        //   ``字符串模板   ${} 占位符， 等待编译
+            return [...word].map(letter => `<span>${letter}</span>`).join('')
+        }
+    </script>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="people">
+        <p>Wes</p>
+        <p>Kait</p>
+        <p>Tandy</p>
+    </div>
+
+    <script>
+
+        // 不是真正的数组，是一个伪数组
+        // js 一切皆对象
+        // let people = Array.from(document.querySelectorAll('.people p'));
+        // let people = [...document.querySelectorAll('.people p')];
+        // const name = people.map(person => person.textContent);
+        // // console.log(name);
+        // const deepDish = {
+        //     pizzaName : 'Deep Dish',
+        //     size: 'Medium',
+        //     ingredients: ['Marinara','Italian Sausage','Dough','Cheese']
+        // };
+
+        // const shoppingList = ['Milk','Flour',...deepDish.ingredients];
+        // console.log(shoppingList);
+
+        const name = ['Wes','Bos'];
+        function sayHi(first,last){
+            alert(`Hey there ${first} ${last}`)
+        }
+        sayHi(...name)
+    </script>
+</body>
+</html>

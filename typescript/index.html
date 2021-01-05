@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML模板</title>
+    <!-- 体积更小 性能优化 机器用的
+        cdn 计算机网络 协议概念 内容分发网络
+        JS 都从中央服务器上去取的话  服务器爆炸 
+        并发数 和 cpu 内存相关 计算上限
+        nginx 接待客流 负载均衡  服务器集群
+        静态文件（JS IMG CSS.. ）不走服务器 另外部署
+        在哪个节点上给你返回内容 内容分发网络
+        .js文件 -> 运营商 cdn 有一个访问了文件 周边就有缓存备份
+        cdn 节点  离你最近的一个节点
+    -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/mustache.js/4.1.0/mustache.min.js
+    "></script>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <div id="target">Loading...</div>
+    <script id="template" type="x-tmpl-mustache">
+        Hello {{ name }} !
+    </script>
+    <script>
+        const template = '{{title}} spends {{calc}}';
+        // 数据源
+        const obj = {
+            title: "Joe",
+            calc:function(){
+                return 2 + 4
+            }
+        }
+        // 编译过程
+        const rendered = Mustache.render(template,obj);
+        // console.log(rendered);
+        document.getElementById('target').innerHTML = rendered;
+
+        const temp = document.getElementById('template').innerHTML;
+        // console.log(temp);
+        // 命名空间VUE  Jquery
+        Mustache.parse(temp);
+        const result = Mustache.render(temp,{name: 'hy'})
+        document.getElementById('target').innerHTML = result;
+        // console.log(result);
+    </script>
+
+    <script src="./common.js"> 
+
+    </script>
+</body>
+</html>
