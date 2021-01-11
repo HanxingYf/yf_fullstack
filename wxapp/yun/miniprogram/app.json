@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/divide/divide",
+    "pages/lanuch/lanuch",
+    "pages/message/message",
+    "pages/userCenter/userCenter"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "dark"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#5397ff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/selectedhome.png"
+      },
+      {
+        "pagePath": "pages/divide/divide",
+        "text": "分类",
+        "iconPath": "images/icons/fenlei.png",
+        "selectedIconPath": "images/icons/selectedfenlei.png"
+      },
+      {
+        "pagePath": "pages/lanuch/lanuch",
+        "text": "发布",
+        "iconPath": "images/icons/selectedfabu.png",
+        "selectedIconPath": "images/icons/selectedfabu.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/icons/message.png",
+        "selectedIconPath": "images/icons/selectedmessage.png"
+      },
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "我的",
+        "iconPath": "images/icons/lianxiren.png",
+        "selectedIconPath": "images/icons/selectedlianxiren.png"
+      }
+    ]
+  },
+
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

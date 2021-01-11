@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      display: flex;
+      justify-content:space-around;
+    }
+    .left {
+      width: 300px;
+      height: 500px;
+      margin-right: 10px;
+      text-align: center;
+      /* background-color: green; */
+      border: 1px solid lightseagreen;
+    }
+    .right {
+      width: 300px;
+      height: 500px;
+      border: 1px solid lightseagreen;
+      text-align: center;
+      padding: 1px;
+      /* background: red; */
+    }
+    .txt {
+      border: 1px solid gray;
+      margin: 1px;
+      padding: 5px;
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <!-- html5 语议化标签 主体内容 -->
+  <main class="main">
+    <div class="left" id="left">
+      <div class="txt-show">左边区域</div>
+      <div class="dargable txt" id="txt1" draggable="true">可移动的文字一</div>
+      <div class="dargable txt" id="txt2" draggable="true">可移动的文字二</div>
+      <div class="dargable txt" id="txt3" draggable="true">可移动的文字三</div>
+      <div class="dargable txt" id="txt4" draggable="true">可移动的文字四</div>
+      <div class="dargable txt" id="txt5" draggable="true">可移动的文字五</div>
+    </div>
+    <div class="right" id="right">
+      <div class="txt-show">右边区域</div>
+    </div>
+  </main>
+  <script>
+  let txtObj = document.querySelectorAll('.txt');
+  // 在此处五个元素， 怎么设置它的事件？
+  // 不可以在伪数组元素上一次性注册事件， 得一个个来
+  // 5
+  // txtObj.forEach(txt => {
+    // 加入一堆事件， 
+  //   txt.addEventListener('dragstart', () => {
+  //     console.log('start');
+  //   })
+  // })
+  let left = document.getElementById('left')
+  let target = document.getElementById('right')
+  left.addEventListener('dragstart', (event) => {
+    // console.log(event);
+    const target = event.target;
+    // 拖拽， dataTransfer 属性， 
+    event.dataTransfer.setData('Text', target.id)
+    console.log(target.id)
+    // console.log(target);
+    // js 事件有冒泡机制
+    // console.log('父元素上');
+  })
+  target.addEventListener('dragstart', (event) => {
+    const target = event.target;
+    event.dataTransfer.setData('Text', target.id);
+  })
+  
+  // left.addEventListener('drag', (event) => {
+  //   console.log('drag');
+  // })
+  left.addEventListener('dragend', (event) => {
+    console.log('dragend');
+  })
+  target.addEventListener('dragenter', (event) => {
+    event.preventDefault();
+    console.log('dragenter')
+  })
+  target.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    console.log('dragover')
+  })
+  left.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    console.log('dragover')
+  })
+  target.addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    console.log('dragleave')
+  })
+  target.addEventListener('drop', (event) => {
+    event.preventDefault();
+    console.log('dragleave')
+    let drag_id = event.dataTransfer.getData('text')
+    let rev = event.target;
+    // console.log(drag_id)
+    target.appendChild(document.getElementById(drag_id))
+  })
+  left.addEventListener('drop', (event) => {
+    event.preventDefault();
+    let drag_id = event.dataTransfer.getData('text')
+    left.appendChild(document.getElementById(drag_id))
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drap & drop</title>
+  <style>
+    .main{
+      display: flex;
+      justify-content: space-around;
+    }
+    .left{
+      height: 500px;
+      width: 300px;
+      border: 1px solid lightseagreen;
+      text-align: center;
+    }
+    .right{
+      height: 500px;
+      width: 300px;
+      border: 1px solid lightseagreen;
+      text-align: center;
+    }
+    .txt{
+      border: 1px solid gray;
+      margin: 3px;
+      padding: 5px;
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="left" id="left">
+      <div class="txt-show">左边区域</div>
+      <div class="dragable txt" id="text1" draggable="true">可移动的文字一</div>
+      <div class="dragable txt" id="text2" draggable="true">可移动的文字二</div>
+      <div class="dragable txt" id="text3" draggable="true">可移动的文字三</div>
+      <div class="dragable txt" id="text4" draggable="true">可移动的文字四</div>
+      <div class="dragable txt" id="text5" draggable="true">可移动的文字五</div>
+    </div>
+    <div class="right" id="right">
+      <div class="txt-show">右边区域</div>
+    </div>
+  </div>
+  <script>
+    // 选取 txt 类名标签
+    let txtObj = document.querySelectorAll('.txt');
+
+    // 此处有两种方法进行事件设置
+    // 方法一：对选取的的元素进行 forEach 逐个进行事件注册（txtObj是伪数组，不能一次性注册事件） 繁琐 不推荐
+    // 方法二：对父元素进行事件设置 以下只演示该方法
+
+    let left = document.getElementById('left');   
+    let right = document.getElementById('right');   // 获取 dom 元素
+
+    // 对左边区域设置事件监听 addEventListener
+    left.addEventListener('dragstart', (event) => {     // es6 箭头函数
+      // console.log(event);
+      const right = event.target;   // 获取选中的元素
+      event.dataTransfer.setData('Text', right.id);
+    })
+  </script>
+</body>
+</html>
