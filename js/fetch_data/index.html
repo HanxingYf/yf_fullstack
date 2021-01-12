@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XMLHttpRequest</title>
+</head>
+<body>
+  <div id="users"></div>
+  <script>
+  // 如何来获取usrs 数据， 显示到页面上
+  // 前端
+  // js 有一个主动去请求数据的API 
+  // fetch
+  const oUsers = document.getElementById('users'); 
+  // 主动拉数据， 微博那边
+  let httpRequest; // undefined 
+  // 让前端可以主动去找后端要数据， 带来了一个时代， 前 端时代
+  // 后端取完数据后， 套个页面 
+  // 浏览器嗅探 
+  if (window.XMLHttpRequest) { // 如果有这个对象 
+    // XML/json/text 是类似于json的数据格式， html <users><user name="黄伦"></user></users>
+    // json 发明的比js 晚了好多， 
+    // 主动的去发出http 请求 并且期待有数据返回
+    httpRequest = new XMLHttpRequest(); // 数据请求实例 xhr
+  } else if (window.ActiveXObject){ // ie 低版本
+    // ie 发明， ActiveXObject
+    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  // 打开一个请求通道 js 自主发送请求能力
+  // 只有后端通过 a  链接的方式 才算向服务器又发送了一个请求
+  // 拿到数据 事件监听的方式 
+  // http request  response 
+  httpRequest.onreadystatechange = function() {
+    if (httpRequest.readyState == XMLHttpRequest.DONE) {
+      //来到前端
+      console.log(httpRequest.responseText);
+      let users = JSON.parse(httpRequest.responseText);
+      oUsers.innerHTML = users.map(user => `
+        <li>${user.id} - ${user.name}</li>
+      `).join('')
+    }
+  }
+  httpRequest.open("GET", "http://localhost:3000/users", true);
+  httpRequest.send();
+  </script>
+</body>
+</html>

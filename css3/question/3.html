@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  #header, #footer {
+    /* height: 50px; */
+    background-color: lightblue;
+  }
+  .container {
+    /* flex: 1; */
+    background-color: cyan;
+    padding-left: 200px; /*给nav 留下宽度*/
+    padding-right:150px;/*给aside 留下宽度*/
+  }
+  /* display: grid ?  */
+  .column {
+    float:left;
+    height: 100%;
+  }
+  #center {
+    width: 100%;
+    background-color: yellow;
+  }
+  
+  #left {
+    width: 200px;
+    background: red;
+    position: relative;
+    margin-left: -100%;
+    right: 200px;
+  }
+  #right {
+    width: 150px;
+    margin-right: -150px;
+    background-color: pink;
+  }
+  </style>
+</head>
+<body>
+  <header id="header"></header>
+  <div class="container">
+    <!-- 三列布局 float  -->
+    <main id="center" class="column"></main>
+    <nav id="left" class="column"></nav>
+    <aside id="right" class="column"></aside>
+  </div>
+  <footer id="footer"></footer>
+</body>
+</html>
