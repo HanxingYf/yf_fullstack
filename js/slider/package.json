@@ -1,0 +1,18 @@
+{
+  "name": "slider",
+  "version": "1.0.0",
+  "description": "- 工作内容和工作流程是两码事\r   - 轻量级的开发流程\r     parcel\r   - 重量级的开发流程\r     webpack babel\r - live-server  http 静态服务\r   stylus stylus 编译\r   初级阶段开发流程    ->    高级阶段",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "stylus": "^0.54.8"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4"
+  }
+}

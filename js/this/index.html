@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script src="./1.js"></script> -->
+  <script>
+    // 对象 this， 内存挂钩
+    var a = 1;  // 内存 内存开辟空间 number 
+    var obj = {   // 内存中开辟空间比较大 -> map 空间 字典查
+      foo: 5,
+      func: function(){
+        console.log(this.foo);
+      }
+    }
+    var foo = 6;
+    var func = obj.func;
+    obj.func()   //  地址的不断查找
+    func();
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 容器左浮 */
+.wrap,.left,.right {
+  float: left;
+}
+
+/* 容器宽度100% */
+.wrap {
+  background: #ccc;
+  width: 100%;
+}
+/* main左右margin分别为left、right的宽度 */
+.main {
+  margin-left: 100px;
+  margin-right: 120px;
+}
+
+.left {
+  background: red;
+  width: 100px;
+  margin-left: -100%;/* 值为100%，left会在最左边 */
+}
+
+.right {
+  background: blue;
+  width: 120px;
+  margin-left: -120px;/* 值为120px，即right的宽度right会在最右边 */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container clearfix">
+    <div class="wrap">
+      <div class="main">main</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+
+</body>
+</html>

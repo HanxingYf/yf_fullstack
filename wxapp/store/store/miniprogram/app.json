@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/cart/cart",
+    "pages/me/me"
+  ],
+  "window": {
+    "backgroundColor": "#F0F0F0",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF5EE",
+    "navigationBarTitleText": "商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#EEAD0E",
+    "color": "#878787",
+    "backgroundColor": "#FFF5EE",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "水果",
+        "iconPath": "images/tabBar/homepage-sel.png",
+        "selectedIconPath": "images/tabBar/homepage.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tabBar/cart-sel.png",
+        "selectedIconPath": "images/tabBar/cart.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tabBar/me-sel.png",
+        "selectedIconPath": "images/tabBar/me.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
