@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('event-loop');
+    setTimeout(() => {
+      console.log('setTimeout1'); 
+      Promise.resolve().then(data => {
+        console.log('2222');
+      })
+    },0);
+
+    setTimeout(() => {
+      console.log('setTimeout2');
+    }, 0);
+
+    Promise.resolve().then(data => {
+      console.log('111');
+    })
+    
+    console.log('event-loop end');
+  </script>
+</body>
+</html>
