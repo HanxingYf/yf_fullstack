@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM操作测试</title>
+  <!-- <link rel="stylesheet" href="./css.css"> -->
+  <script>
+    // js 阻塞   DOM 树
+  // let oContainer = document.getElementById('container');
+  // console.log(oContainer); // null 
+  </script>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+  // why? 怎么优化？ 
+  // 1. 查找元素， 可以提出来
+  document.addEventListener('DOMContentLoaded', () => {
+    // dom + css 结合完成了
+    console.log('DomContentLoaded')
+  }, false);
+  // DOM 树 ready 了 
+  window.addEventListener('load', () => {
+    // 各种资源加载完了  js  img src ....
+    console.log('loaded')
+  }, false);
+
+  let oContainer = document.getElementById('container');
+  let content = '';
+  for (var count = 0; count < 10000; count++) {
+   content += '<span>我是一个小测试</span>';
+  }
+  oContainer
+      .innerHTML += content;
+  </script>
+</body>
+</html>

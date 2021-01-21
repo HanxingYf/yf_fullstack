@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .reveal{
+      width: 25px;
+      height: 100px;
+      background-color: green;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+  // 怎么优化？
+  let container = document.getElementById('container');
+  container.classList.add('reveal');
+  // container.style.width = '100px';
+  // container.style.height = '200px';
+  // container.style.border = '10px solid red';
+  // container.style.color = 'red';
+  // container.style.cssText = "width:25px;height: 100px;background-color:green;border:10px solid red;";
+  </script>
+</body>
+</html>
