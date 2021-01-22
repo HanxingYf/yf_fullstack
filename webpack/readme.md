@@ -14,3 +14,5 @@ js es6|7|8|9|10  老浏览器不支持，编译一下
 stylus css 编译一下 npm run build 编译一下
 
 写的代码 build 用户执行的代码
+
+entry -> module(CSS|JS}PNG|)

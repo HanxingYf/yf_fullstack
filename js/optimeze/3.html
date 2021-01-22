@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>懒加载</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .img {
+    width: 500px;
+    height: 500px;
+  }
+
+  </style>
+</head>
+<body>
+  <!-- 展示图片为主， src  http 下载线程 img  data-src 里真正的图片地址
+  防止页面打开速度太慢 http 5个并发数  img 独立的打开一个http通道  n>10  
+   减少并发数 网页打开速度的做法 
+    静态资源 第一次请求， 后一次请求 缓存的 
+  -->
+  <div class="container">
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_7d557e30f1254bdc8597f5eccdeb8e29_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_8327e6797c2745f99e8ecc6bae1958b4_img_png" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_6c513ab4937d456d9554deca27e9f5f0_img_000?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_2ef591c9986a47099c5905682fb6365f_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_f91f15ae0804422da41dce10a1ce37ad_img_jpg?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210121/v2_73ef9df5c01c4210a01aa46b85b0fd8a_img_jpg" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_2ee8b63dde624520836e412e40251df5_img_000?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_d500f1a71d9d414c9cd631f138f5f769_img_png" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_3789126b279e4889ae75988a7523c57b_img_000?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+    <div class="img"><img src="./loading.svg" data-src="https://img.36krcdn.com/20210122/v2_d4fac7849276424f89522946e8ffb128_img_000?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center" alt="加载中" class="pic"></div>
+  </div>
+  <script>
+  let imgs;
+  /*
+   * interval 时间内 执行fn 一次 scroll 但是拒绝掉。 节约了执行次数   
+    闭包 高阶函数  addEve 函数  scroll 执行
+  */
+  const throttle = (fn, interval) => {
+    let last = 0; // 上一次促发回调的时间 
+    return function() { // 返回函数
+      // fn();  // throttle 完成了封装， 没有节流
+      let now = +new Date();
+      if (now - last >= interval) { // 
+        last = now;
+        fn();
+      }
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    imgs = document.getElementsByTagName('img'); //  把所有的图片抓住
+    // console.log(imgs);
+    const viewHeight = window.innerHeight || docuemnt.documentElement.clientHeight; // JS 浏览器嗅探
+    console.log(viewHeight);
+    function lazyload() {
+      console.log('lazyload');
+      // 占位图 替换成 data-src 真实地址 
+      //  哪些图片要出来呢？ 视窗检查 viewport detect 
+      for (let i = 0; i < imgs.length; i++) { // 
+        // consooe.log(imgs)
+        // 有个概念模糊， 判断或计算的核心，  定义一个变量 
+        let distance = viewHeight - imgs[i].getBoundingClientRect().top; // 出现在视窗中，已经出现过了  
+        if (distance > 0) {
+          // console.log('出现了')
+          imgs[i].src = imgs[i].getAttribute('data-src')
+        }
+      } 
+      // console.log(imgs[0].getBoundingClientRect().top);
+    }
+    // 首屏图片加载？  scroll事件会高频触发 
+    // 减少执行次数， 同时不影响lazyload 效果 10  1   节流 
+    window.addEventListener('scroll', throttle(lazyload, 1000), false); // scroll  都会检测所有的元素 ->  性能问题
+    // onload  
+    window.addEventListener('load', lazyload, false);
+  }, false);
+  </script>
+</body>
+</html>
