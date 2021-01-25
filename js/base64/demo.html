@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS启动新的线程</title>
+</head>
+<body>
+  <!-- js 是单线程语言， 同意吗？
+  语言的特性 toy  
+    html5 新特性，  js 可以多线程
+  -->
+  <script>
+  // html5 新特性有哪些  优化 js 
+  // 一部分工作交给  worker 线程去做
+  // 耗时间  webp 转化 加密 比特币  图片的webp   文件的处理
+  let worker = new Worker('work.js'); // 启动一个worker 线程 thread 
+  // 线程间通信
+  worker.postMessage('Hello World');
+  worker.addEventListener('message', e => {
+    console.log(e);
+  })
+  </script>
+</body>
+</html>

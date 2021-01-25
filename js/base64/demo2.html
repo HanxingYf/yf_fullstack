@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    Count numbers: <output id="result"></output>
+  </p>
+  <button onclick="startWorker()">Start Worker</button>
+  <button onclick="stopWorker()">Stop Worker</button>
+  <script>
+  var w; // 全局
+  function startWorker() {
+    // 浏览器嗅探
+    if (typeof(Worker) !== "undefined") {
+      w = new Worker("demo_workers.js")
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    }
+  }
+  function stopWorker() {
+    w.terminate();
+  }
+  </script>
+</body>
+</html>
