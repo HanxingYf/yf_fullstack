@@ -1,0 +1,50 @@
+/*form 样式*/
+.comment-input {
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.comment-field {
+  margin-bottom: 15px;
+  display: flex;
+}
+.comment-field .comment-field-name {
+  display: flex;
+  flex-basis: 100x;
+  font-size: 14px;
+}
+.comment-field .comment-field-input {
+  flex: 1;
+  display: flex;
+}
+.comment-field-input input,
+.comment-field-input textarea {
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  font-size: 14px;
+  flex: 1;
+}
+.comment-field-input textarea {
+  height: 100px;
+}
+.comment-field-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment-field-button button {
+  padding: 5px 10px;
+  width: 80px;
+  border: none;
+  border-radius: 3px;
+  background-color: #00a3cf;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer
+}
+.comment-field-button button:active {
+  background: #13c1f1;
+}
