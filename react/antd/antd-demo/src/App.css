@@ -1,0 +1,9 @@
+@import '~antd/dist/antd.css';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.margin-right {
+  margin-right: 16px;
+}
