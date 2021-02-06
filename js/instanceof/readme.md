@@ -1,0 +1,2 @@
+- instanceof
+- 手写一个instanceof_of函数
