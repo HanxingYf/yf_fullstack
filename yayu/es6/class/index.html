@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Person {
+    // 新的写法 
+        count = 0
+        constructor(name) {
+            this.name = name;
+            // this.count  = 0;
+        } 
+        sayHello () {
+            return 'hello, I am ' + this.name
+        }
+    }
+    const mj = new Person()
+    alert(mj.count);
+    </script>
+</body>
+</html>
