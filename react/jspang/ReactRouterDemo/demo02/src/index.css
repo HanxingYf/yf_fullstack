@@ -1,0 +1,41 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+
+.mainDiv{
+  display: flex;
+  width: 100%;
+}
+.leftNav{
+  width: 16%;
+  background-color: #c0c0c0;
+  color:#333;
+  font-size:24px;
+  height: 1000px;
+  padding: 20px;
+}
+.rightMain{
+  width: 84%;
+  height:1000px;
+  background-color: #fff;
+  font-size:20px;
+
+}
+.topNav{
+  height:50px ;
+  background-color: #cfdefd;
+}
+.topNav ul{
+ display: flex; 
+ margin: 0px;
+ padding: 0px;
+}
+.topNav li{
+ padding: 10px;
+ text-align: center;
+ list-style: none;
+}
+.videoContent{
+   padding:20px;
+}

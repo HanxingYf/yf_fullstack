@@ -5,6 +5,7 @@ import Recommend from '../application/Recommend';
 import Singers from '../application/Singers';
 import Rank from '../application/Rank';
 
+
 export default [ // App.js routes 
     {
         path: '/',

@@ -1,0 +1,5 @@
+component: express 
+name: my_express
+express:
+  inputs:
+    region: ap-shanghai
