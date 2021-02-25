@@ -15,7 +15,7 @@ class Index extends Component {
   render() {
     return (
       <div>
-        
+
         <h2>JSPang.com</h2>
         <ul>
           {
