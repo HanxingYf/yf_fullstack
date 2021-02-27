@@ -20,7 +20,7 @@ class XjjItem extends Component {
   componentWillMount() {
     console.log('componentWillMount,将要挂载');
   }
-  componentDidMount() {
+  componentDidMount() { 
     console.log('componentDidMount,挂载完成');
   }
   componentWillReceiveProps() {
