@@ -7,7 +7,7 @@
 // console.log([] == true) 
 // console.log({} == {});  // false 
 console.log([] == ![]); // true == 
-console.log(Number([]));
+console.log(Number([])==Number(false));
 console.log(String([1,2,3]))
 // ![] 优先级高  ![]  转换为布尔值 
 console.log(!Boolean([]), '---')
@@ -15,3 +15,4 @@ console.log(Number(false), '+++++');
 console.log(Number(![]));
 console.log(Boolean([]) == Boolean(![])); // 显示类型转换 数字 0 
 // 0 == 0 
+
