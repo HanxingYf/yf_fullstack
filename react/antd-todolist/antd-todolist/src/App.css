@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import '~semantic-ui-css/semantic.min.css';
 
 .App {
   text-align: center;
