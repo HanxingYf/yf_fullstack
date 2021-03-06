@@ -1,5 +1,5 @@
 {
-  "name": "next-create",
+  "name": "antddemo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,8 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "antd": "^4.13.0",
-    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
-    "moment": "^2.29.1",
-    "momnet": "^2.29.1",
-    "next": "10.0.7",
+    "next": "10.0.8",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   }
