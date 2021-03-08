@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "拼"
+    },
+    {
+      "id": "nfRqW6a"
+    },
+    {
+      "id": "ZF5m4Kx"
+    },
+    {
+      "id": "ryli-vJ"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "body": "hello react",
+      "postId": "1",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
