@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="" alt="" id="pic" width="200px">
+  <input type="file" id="file">
+  <script>
+    document
+      .getElementById('file')
+      .addEventListener('change',(e)=>{
+        const file = e.target.files[0]
+        const URL = window.URL;
+        const objectUrl = URL.createObjectURL(file)
+        // console.log(objectUrl);
+        const pic = document.getElementById('pic')
+        pic.src = objectUrl;
+        pic.onload=function(){
+          URL.revokeObjectURL(objectUrl);
+        }
+      })
+  </script>
+</body>
+</html>
