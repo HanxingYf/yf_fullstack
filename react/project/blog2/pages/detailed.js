@@ -7,8 +7,8 @@ import Author from '../components/Author'
 import Advert from '../components/Advert'
 import axios from 'axios'
 
-import ReactMarkdown from 'react-markdown'
-import MarkNav from 'markdown-navbar';
+import Tocify from '../components/tocify.tsx'
+import servicePath from '../config/apiUrl'
 import 'markdown-navbar/dist/navbar.css';
 import '../static/style/pages/detail.css'
 
@@ -22,6 +22,12 @@ import { CalendarOutlined, FolderAddOutlined, FireOutlined } from '@ant-design/i
 const Detailed = (props) => {
 
   const renderer = new marked.Renderer();
+
+  const tocify = new Tocify()
+  renderer.heading = function (text, level, raw) {
+    const anchor = tocify.add(text, level);
+    return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
+  };
 
   marked.setOptions({
     renderer: renderer,
@@ -67,10 +73,10 @@ const Detailed = (props) => {
                 <span><FireOutlined /> 5498人</span>
               </div>
 
-              <div className="detailed-content" 
-                dangerouslySetInnerHTML={{__html:html}}
+              <div className="detailed-content"
+                dangerouslySetInnerHTML={{ __html: html }}
               >
-                
+
               </div>
 
             </div>
@@ -86,11 +92,9 @@ const Detailed = (props) => {
           </Affix>
           <div className="detailed-nav comm-box">
             <div className="nav-title">文章目录</div>
-            <MarkNav
-              className="article-menu"
-              source={html}
-              ordered={false}
-            />
+            <div className="toc-list">
+              {tocify && tocify.render()}
+            </div>
           </div>
         </Col>
       </Row>
@@ -105,7 +109,7 @@ Detailed.getInitialProps = async (context) => {
   let id = context.query.id
   const promise = new Promise((resolve) => {
 
-    axios('http://127.0.0.1:7001/default/getArticleById/' + id).then(
+    axios(servicePath.getArticleById + id).then(
       (res) => {
         console.log(res)
         resolve(res.data.data[0])

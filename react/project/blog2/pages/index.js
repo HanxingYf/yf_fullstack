@@ -9,6 +9,8 @@ import Author from '../components/Author'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import '../static/style/pages/index.css'
+
+import servicePath from '../config/apiUrl'
 import { CalendarOutlined, FolderAddOutlined, FireOutlined } from '@ant-design/icons'
 
 
@@ -68,7 +70,7 @@ const Home = (list) => {
 
 Home.getInitialProps = async () => {
   const promise = new Promise((resolve) => {
-    axios('http://127.0.0.1:7001/default/getArticleList').then(
+    axios(servicePath.getArticleList).then(
       (res) => {
         // console.log('远程获取数据结果:',res.data.data)
         resolve(res.data)
