@@ -1,19 +1,30 @@
-// var spiralOrder = function (matrix) {
-//   let m = matrix.length;
-//   let n = matrix[0].length;
-//   let arr = new Array(m).fill(0);
-//   for (let i = 0; i < m; i++) {
-//     arr[i] = new Array(n).fill(0);
-//   }
-//   let arr = [];
-//   while (arr.length < m * n) {
+var spiralOrder = function (matrix) {
+  let m = matrix.length;
+  let n = matrix[0].length;
+  let vis = new Array(m).fill(0);
+  for (let i = 0; i < m; i++) {
+    vis[i] = new Array(n).fill(0);
+  }
+  let arr = [];
+  let directionIndex = 0, row = 0, col = 0;
+  let directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+  while (arr.length < m * n) {
+    console.log(row,col);
+    arr.push(matrix[row][col]);
+    vis[row, col] = 1;
+    let nextRow = row + directions[directionIndex][0];
+    let nextCol = col + directions[directionIndex][1];
+    console.log(nextRow,nextCol);
+    if (!(0 <= nextRow && nextRow < m && 0 <= nextCol && nextCol < n && !(vis[nextRow][nextCol]))) {
+      directionIndex = (directionIndex + 1) % 4;
+  }
+  console.log(directionIndex);
+    row += directions[directionIndex][0];
+    col += directions[directionIndex][1];
+  }
+  return arr;
 
-//   }
+};
 
-// };
-
-// let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-// console.log(spiralOrder(matrix));
-
-let a = [[1,1,1],[1,1,1][1,1,1]]
-console.log(a.length);
+let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+console.log(spiralOrder(matrix));
