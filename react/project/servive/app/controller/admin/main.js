@@ -11,6 +11,7 @@ class MainController extends Controller {
     }
     //判断用户名密码是否正确
     async checkLogin() {
+        // this.ctx.body = 'login'
         let userName = this.ctx.request.body.userName
         let password = this.ctx.request.body.password
         const sql = " SELECT userName FROM admin_user WHERE userName = '" + userName +
@@ -30,6 +31,9 @@ class MainController extends Controller {
     async getTypeInfo() {
         const resType = await this.app.mysql.select('type')
         this.ctx.body = { data: resType }
+    }
+    async getTest(){
+        this.ctx.body = 'test'
     }
 
 }

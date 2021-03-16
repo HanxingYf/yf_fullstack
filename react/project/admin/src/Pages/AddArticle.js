@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import marked from 'marked'
 import '../static/css/AddArticle.css'
-import { Row, Col, Input, Select, Button, DatePicker, message } from 'antd'
+import { Row, Col, Input, Select, Button, DatePicker } from 'antd'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
@@ -14,13 +14,6 @@ const { TextArea } = Input
 
 function AddArticle(props) {
 
-
-  const [typeInfo, setTypeInfo] = useState([]) // 文章类别信息
-
-  useEffect(() => {
-    getTypeInfo()
-  }, [])
-
   const [articleId, setArticleId] = useState(0)  // 文章的ID，如果是0说明是新增加，如果不是0，说明是修改
   const [articleTitle, setArticleTitle] = useState('')   //文章标题
   const [articleContent, setArticleContent] = useState('')  //markdown的编辑内容
@@ -29,8 +22,14 @@ function AddArticle(props) {
   const [introducehtml, setIntroducehtml] = useState('等待编辑') //简介的html内容
   const [showDate, setShowDate] = useState()   //发布日期
   const [updateDate, setUpdateDate] = useState() //修改日志的日期
-
+  const [typeInfo, setTypeInfo] = useState([])
   const [selectedType, setSelectType] = useState('选择类别') //选择的文章类别
+
+
+
+  // useEffect(() => {
+  //   getTypeInfo()
+  // }, [])
 
   marked.setOptions({
     renderer: marked.Renderer(),
@@ -77,6 +76,12 @@ function AddArticle(props) {
     )
   }
 
+
+  //选择类别后的便哈
+  const selectTypeHandler = (value) => {
+    setSelectType(value)
+  }
+
   return (
     <div>
       <Row gutter={5}>
@@ -84,20 +89,23 @@ function AddArticle(props) {
           <Row gutter={10} >
             <Col span={20}>
               <Input
+                value={articleTitle}
                 placeholder="博客标题"
+                onChange={e => {
+
+                  setArticleTitle(e.target.value)
+                }}
                 size="large" />
             </Col>
 
             <Col span={4}>
               &nbsp;
-              <Select defaultValue={selectedType} size="large" >
+              <Select defaultValue={selectedType} size="large" onChange={selectTypeHandler}>
                 {
                   typeInfo.map((item, index) => {
                     return (<Option key={index} value={item.Id}>{item.typeName}</Option>)
                   })
                 }
-
-
               </Select>
             </Col>
           </Row>
@@ -151,8 +159,10 @@ function AddArticle(props) {
             <Col span={12}>
               <div className="date-select">
                 <DatePicker
+                  onChange={(date, dateString) => setShowDate(dateString)}
                   placeholder="发布日期"
                   size="large"
+
                 />
               </div>
             </Col>
