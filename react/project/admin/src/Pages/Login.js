@@ -12,7 +12,7 @@ function Login(props) {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
+    
 
     const checkLogin = () => {
         setIsLoading(true)
@@ -32,7 +32,8 @@ function Login(props) {
         }
         let dataProps = {
             'userName': userName,
-            'password': password
+            'password': password,
+ 
         }
         axios({
             method: 'post',
