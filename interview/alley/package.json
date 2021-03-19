@@ -1,0 +1,17 @@
+{
+  "name": "alley",
+  "version": "1.0.0",
+  "description": "- flex\r   分割线搭理的专业度\r   flex 布局\r   display:flex 子元素布局就由flex 接管\r   .divider border-right\r   min-width",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0"
+  }
+}
