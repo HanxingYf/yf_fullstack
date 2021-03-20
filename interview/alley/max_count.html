@@ -3451,7 +3451,10 @@
 
     function getFrequentTag() {
       // reduce 需要的数组
-      const tags = [...document.querySelectorAll('*')].map(x => x.tagName)
+      const tags = [...document.querySelectorAll('*')].map(x => x.tagName).reduce((o, tag) => {
+        o[tag] = o[tag] ? o[tag] + 1 : 1
+        return o;
+      }, {})
       console.log(tags);
     }
 
