@@ -12,6 +12,10 @@
 // // 输出顺序：script start->async1 start->async2->script end->async1 end
 
 
-let arr = [1, 34, 5, 76, 8, 6, 9, 7, 6, 3];
 
-console.log(arr.splice(1,1));
+
+async function f1(){
+  return "hello world11";
+};
+console.log('a');
+f1().then((v)=>console.log(v));
