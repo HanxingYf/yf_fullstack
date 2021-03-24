@@ -1,0 +1,12 @@
+.content {
+  width: 300px;
+}
+.logo {
+  min-width: 60px;
+}
+.logo img {
+  width: 100%;
+}
+.title {
+  text-align: center;
+}
