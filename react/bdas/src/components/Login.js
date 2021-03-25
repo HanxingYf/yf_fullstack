@@ -1,12 +1,13 @@
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import '../static/style/Login.css'
 
 import servichPath from '../api/apiUrls'
 import axios from 'axios'
 
-const Login = () => {
+const Login = (props) => {
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
   };
@@ -17,7 +18,8 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [u_type, setU_type] = useState('user')
 
-  const checkLogin = (prpos) => {
+  const checkLogin = (e) => {
+    e.preventDefault()  // 阻止点击的默认事件
     setIsLoading(true)
     if (!user_name) {
       message.error('用户名不能为空')
@@ -37,7 +39,6 @@ const Login = () => {
       'user_name': user_name,
       'password': password
     }
-    let history = this.context.router.history
     // console.log(dataProps);
     axios({
       method: 'POST',
@@ -49,7 +50,8 @@ const Login = () => {
         setIsLoading(false)
         // console.log(res);
         if (res.data.code === 0) {
-          history.push('/')
+          console.log('成功+++');
+          props.history.push('/index')
         } else {
           message.error('用户名密码错误')
         }
@@ -118,4 +120,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default withRouter(Login);

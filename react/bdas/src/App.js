@@ -1,6 +1,5 @@
-import React from 'react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from "history";
+import React from 'react';
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 
 
@@ -9,11 +8,9 @@ import Login from './components/Login'
 
 function App() {
   return (
-    <Router history={createBrowserHistory()}>
-      <Switch>
-        <Route path='/' exact component={Home} />
+    <Router>
+        <Route path='/index' exact component={Home} />
         <Route path='/login' component={Login} />
-      </Switch>
     </Router>
   );
 }
