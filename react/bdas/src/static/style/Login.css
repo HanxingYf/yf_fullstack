@@ -1,0 +1,28 @@
+@import '~antd/dist/antd.css';
+.login{
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+  text-align: center;
+
+}
+.login-name{
+  display: inline-block;
+  color: blue;
+  font-weight: 50px;
+  font-size: large;
+  margin-bottom: 20px;
+}
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+  float: left;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}

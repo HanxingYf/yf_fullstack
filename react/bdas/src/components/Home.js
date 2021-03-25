@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import servicePath from '../api/apiUrls';
+import { Button } from 'antd'
 
 class Home extends Component {
 
@@ -25,6 +26,7 @@ class Home extends Component {
     return (
       <div>
         Home
+        <Button type="primary">Primary Button</Button>
       </div>
     );
   }
