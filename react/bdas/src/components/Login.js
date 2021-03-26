@@ -51,7 +51,7 @@ const Login = (props) => {
         // console.log(res);
         if (res.data.code === 0) {
           console.log('成功+++');
-          props.history.push('/index')
+          props.history.push('/')
         } else {
           message.error('用户名密码错误')
         }
