@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <span>上一张</span>
+    <img :src="imgUrl[index]" />
+    <span>下一张</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        imgUrl: [
+          'https://z3.ax1x.com/2021/03/06/6nxq8x.jpg',
+          'https://z3.ax1x.com/2021/03/06/6nxbP1.jpg',
+          'https://z3.ax1x.com/2020/11/29/DgARrd.jpg'
+        ],
+        index: 0
+      },
+      methods: {
+        pre: function () {
+          if (index >= 0) {
+            index--;
+          }
+        },
+        next: function () {
+          if (index < this.data.length) {
+            index++;
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
