@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="music">
+    <div class="header">
+      <div class="header_name">
+        悦听
+      </div>
+      <div class="header_input">
+        <input type="text" v-model="query" @keyup.enter="searchMusic" placeholder="请输入歌曲名" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="left">
+        <ul>
+          <li v-for="item in musicList" @click="playMusic(item.id)">
+            <a href="javascript:;">▶</a>
+            <b>{{item.name}}</b>
+          </li>
+        </ul>
+
+      </div>
+      <div class="center">
+
+      </div>
+      <div class="right">
+
+      </div>
+    </div>
+    <div class="footer">
+      <audio :src="musicUrl" controls="controls" autoplay>播放器</audio>
+    </div>
+  </div>
+
+  <!-- 引入VUE -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- 引入aixos -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+  <!-- 本地vue -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
