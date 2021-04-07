@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <Father></Father>
+  </div>
+
+  <template id="father">
+    <div>
+      <son1 @parentchange="change"></son1>
+      <son2 :parentnum="num"></son2>
+    </div>
+  </template>
+
+  <template id="son1">
+    <div>
+      <button @click="add">add</button>
+      <button @click="sub">sub</button>
+      <input type="text" :value="count" />
+    </div>
+
+  </template>
+
+  <template id="son2">
+    <p>
+      {{parentnum}}
+    </p>
+  </template>
+
+  <!-- vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- 本地vue -->
+  <script>
+    // 注册爸爸组件
+    Vue.component('father', {
+      template: '#father',
+      data: function () {
+        return {
+          num: 0
+        }
+      },
+      methods:{
+        change:function( newCount){
+          this.num = newCount
+        }
+      },
+      components: {
+        "son1": {
+          template: '#son1',
+          data: function () {
+            return {
+              count: 0
+            }
+          },
+          methods: {
+            add: function () {
+              this.count++;
+              this.$emit('parentchange', this.count);
+            },
+            sub: function () {
+              this.count--;
+              this.$emit('parentchange', this.count);
+            }
+          }
+        },
+        "son2": {
+          template: '#son2',
+          props:["parentnum"]
+        }
+      }
+    })
+
+    let vue = new Vue({
+      el: '#app',
+      data: {
+        num: 0
+      }
+    })
+
+  </script>
+</body>
+
+</html>
