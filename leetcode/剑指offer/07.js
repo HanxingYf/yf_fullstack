@@ -28,3 +28,4 @@ inorder = [9, 3, 15, 20, 7] // index = 1
 console.log(buildTree(preorder, inorder));
 
 // 5 9 3 15 20 7
+   
