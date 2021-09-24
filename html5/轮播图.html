@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin: 100px auto 0 auto;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 5px green;
+      }
+      .wrapper {
+        margin-top: 0;
+        position: absolute;
+        width: 3000px;
+        height: 500px;
+        z-index: 1;
+      }
+      .wrapper img {
+        float: left;
+        width: 500px;
+        height: 500px;
+      }
+      .arrow {
+        z-index: 2;
+        font-size: 35px;
+        color: white;
+        position: absolute;
+        top: 35%;
+      }
+      .container .arrow_left {
+        left: 10px;
+      }
+      .container .arrow_right {
+        right: 10px;
+      }
+      .container .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+			<div class="wrap" style="left:-1000px;">
+					<img src="./img/1.jpeg" alt="">
+					<img src="./img/1.jpeg" alt="">
+					<img src="./img/2.jpeg" alt="">
+					<img src="./img/3.jpeg" alt="">
+					<img src="./img/4.jpeg" alt="">
+					<img src="./img/1.jpeg" alt="">
+			</div>
+			<div class="buttons">
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+			</div>
+			<a href="javascript:;" class="arrow arrow_left">&lt;</a>
+			<a href="javascript:;" class="arrow arrow_right">&gt;</a>
+	</div>
+
+    <script>
+      var wrap = document.querySelector(".wrap");
+			var next = document.querySelector(".arrow_right");
+			var prev = document.querySelector(".arrow_left");
+			console.log(wrap.style.left);
+			next.onclick = function () {
+				console.log('1');
+					next_pic();
+			}
+			prev.onclick = function () {
+					prev_pic();
+			}
+			function next_pic () {
+					var newLeft = parseInt(wrap.style.left)-500;
+					wrap.style.left = newLeft + "px";
+					console.log(wrap.style.left);
+			}
+			function prev_pic () {
+					var newLeft = parseInt(wrap.style.left)+500;
+					wrap.style.left = newLeft + "px";
+			}
+    </script>
+  </body>
+</html>
