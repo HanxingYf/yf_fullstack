@@ -1,6 +1,15 @@
+function sumT(a, b) {
+    return  new Promise((resolve, reject) => {
+        asyncAdd(a, b, (err, res) => {
+            if(!err) {
+                resolve(res)
+            }
+            reject(err)
+        })
+    })
+}
 
-const m = new Map()
-m.set('', 'a')
-    .set('', 'b')
-
-console.log(m.get(''));
+// 测试
+const test = await sumT(1, 2)
+console.log(test)
+// 3
