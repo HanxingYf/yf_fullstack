@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+      </ul>
+    </div>
+
+    <script>
+      document.getElementById("div").addEventListener("click", (e) => {
+        alert("div");
+        e.stopPropagation;
+      });
+      document.querySelector(".ul").addEventListener("click", (e) => {
+        alert("ul");
+      });
+
+      document.querySelector(".li").addEventListener("click", (e) => {
+        alert("li");
+        //e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>
